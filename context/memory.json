@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "snapshotVersion": 1,
+  "updatedAt": "2026-10-07",
+  "owner": "Sourena",
+  "records": [
+    { "id": "id-001", "domain": "identity", "title": "Name", "value": "Sourena", "state": "USER_PROVIDED", "visibility": "PUBLIC", "source": "user" },
+    { "id": "edu-001", "domain": "education", "title": "Field of study", "value": "Computer Engineering student", "state": "USER_PROVIDED", "visibility": "PUBLIC", "source": "user", "note": "University, year and expected graduation not provided." },
+    { "id": "pos-001", "domain": "brand", "title": "Intended identity", "value": "A builder who combines engineering, AI, product thinking and entrepreneurship to build useful systems and products.", "state": "USER_PROVIDED", "visibility": "PUBLIC", "source": "user" },
+    { "id": "goal-001", "domain": "goal", "title": "Long-term direction", "value": "Engineering + AI + Product Building + Entrepreneurship", "state": "USER_PROVIDED", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "skill-001", "domain": "skill", "title": "Python", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "skill-002", "domain": "skill", "title": "Software Engineering", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "skill-003", "domain": "skill", "title": "Git / GitHub", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "skill-004", "domain": "skill", "title": "Machine Learning / Deep Learning / AI", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "skill-005", "domain": "skill", "title": "Algorithms", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "skill-006", "domain": "skill", "title": "IoT", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "skill-007", "domain": "skill", "title": "Product Thinking / Entrepreneurship", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "proj-001", "domain": "project", "title": "BetaBazar", "value": "Existing project. Scope, role, status and outcomes not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "proj-002", "domain": "research", "title": "IoT algorithm research", "value": "Existing research. Topic, status and publications not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "proj-003", "domain": "project", "title": "NOVA OS (this system)", "value": "Personal brand operating system. Phase 1 foundation in progress.", "state": "VERIFIED", "visibility": "PUBLIC", "source": "system", "evidence": ["this repository"] },
+    { "id": "rule-001", "domain": "rule", "title": "No unverified claims", "value": "Never invent employment, degrees, certificates, clients, revenue, users, metrics, titles or outcomes.", "state": "USER_PROVIDED", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "rule-002", "domain": "rule", "title": "Approval required", "value": "Public posts, profile changes, deletions, permission changes and disconnections require owner approval.", "state": "USER_PROVIDED", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "rule-003", "domain": "rule", "title": "Zero-cost target", "value": "Prefer free tiers, GitHub Actions, open source and local AI. AI providers must be swappable.", "state": "USER_PROVIDED", "visibility": "INTERNAL_STRATEGY", "source": "user" },
+    { "id": "q-001", "domain": "pending_question", "title": "BetaBazar details", "value": "What is BetaBazar, your role, status, and is there a public link or repo?", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "system" },
+    { "id": "q-002", "domain": "pending_question", "title": "Education details", "value": "University, current year, expected graduation — and which of these may be public?", "state": "NEEDS_CONFIRMATION", "visibility": "PRIVATE", "source": "system" },
+    { "id": "q-003", "domain": "pending_question", "title": "GitHub and LinkedIn handles", "value": "Your existing GitHub username and LinkedIn profile URL, if any.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "system" }
+  ],
+  "content": [
+    { "id": "c-001", "stage": "idea", "title": "Why I'm building NOVA OS in public", "pillar": "Building in public", "sourceRecord": "proj-003" }
+  ],
+  "accounts": [
+    { "id": "github", "role": "Proof of Work", "status": "NOT_CONNECTED" },
+    { "id": "linkedin", "role": "Public narrative & distribution", "status": "NOT_CONNECTED" },
+    { "id": "portfolio", "role": "Complete story", "status": "NOT_STARTED" }
+  ]
+}

@@ -1,29 +1,26 @@
-# Welcome to your Lovable project
+# NOVA OS — Sourena
 
-This project was built with [Lovable](https://lovable.dev).
+Personal Brand Operating System.
 
-## Build with Lovable
+- **NOVA (GPT)** — strategic brain: analysis, strategy, decisions, critique.
+- **Memory Core** (`context/memory.json`) — canonical, versioned, portable context. Source of truth.
+- **NOVA OS (this app)** — control center and execution layer.
+- **GitHub** — proof of work. **LinkedIn** — public narrative and distribution.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Brand chain: Foundation → Identity → Positioning → Proof → Profile → Content → Distribution → Audience → Opportunities → Analytics → Optimization.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Layout
+- `brand/` foundation, identity, positioning, strategy
+- `context/` memory.json + schema, knowledge states, privacy rules
+- `projects/` one file per project (proof of work)
+- `content/` ideas → drafts → approved → published
+- `github/`, `linkedin/` engine strategy
+- `system/` architecture, roadmap, changelog
+- `src/` the Control Center app
 
-## Development
+## Nova sync (manual, $0)
+1. Download the Memory snapshot from the Control Center (JSON or Markdown).
+2. Give it to Nova GPT.
+3. Nova returns proposed changes; you review and commit them to `context/memory.json`.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+No secrets live in this repository.
