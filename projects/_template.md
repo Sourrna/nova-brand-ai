@@ -1,0 +1,11 @@
+# Project: <name>
+- State: NEEDS_CONFIRMATION
+- Visibility: PUBLIC | INTERNAL_STRATEGY
+- Problem:
+- My role:
+- Stack:
+- Status:
+- Evidence (repo / commit / demo / doc links):
+- Outcomes (only measured, real):
+- What I learned:
+- Content angles:
