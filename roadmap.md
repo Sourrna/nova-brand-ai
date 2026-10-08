@@ -8,6 +8,10 @@
 - [x] Project / Proof of Work structure
 - [x] Content pipeline structure
 - [x] Control Center (read-only view + export)
+
+## Phase 2
+- [x] Step 1: app shell, memory, projects, content, GitHub, LinkedIn, changelog pages
+- [ ] Step 2: next (Nova packet import, etc.)
 - [x] README + architecture docs
 
 ## Later
