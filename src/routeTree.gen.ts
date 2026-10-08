@@ -10,33 +10,137 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChangelogRouteImport } from './routes/changelog'
+import { Route as ContentRouteImport } from './routes/content'
+import { Route as GithubRouteImport } from './routes/github'
+import { Route as LinkedinRouteImport } from './routes/linkedin'
+import { Route as MemoryRouteImport } from './routes/memory'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChangelogRoute = ChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContentRoute = ContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GithubRoute = GithubRouteImport.update({
+  id: '/github',
+  path: '/github',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinkedinRoute = LinkedinRouteImport.update({
+  id: '/linkedin',
+  path: '/linkedin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MemoryRoute = MemoryRouteImport.update({
+  id: '/memory',
+  path: '/memory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/changelog': typeof ChangelogRoute
+  '/content': typeof ContentRoute
+  '/github': typeof GithubRoute
+  '/linkedin': typeof LinkedinRoute
+  '/memory': typeof MemoryRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/changelog': typeof ChangelogRoute
+  '/content': typeof ContentRoute
+  '/github': typeof GithubRoute
+  '/linkedin': typeof LinkedinRoute
+  '/memory': typeof MemoryRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/changelog': typeof ChangelogRoute
+  '/content': typeof ContentRoute
+  '/github': typeof GithubRoute
+  '/linkedin': typeof LinkedinRoute
+  '/memory': typeof MemoryRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/changelog'
+    | '/content'
+    | '/github'
+    | '/linkedin'
+    | '/memory'
+    | '/projects'
+    | '/projects/$slug'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/changelog'
+    | '/content'
+    | '/github'
+    | '/linkedin'
+    | '/memory'
+    | '/projects/$slug'
+    | '/projects'
+  id:
+    | '__root__'
+    | '/'
+    | '/changelog'
+    | '/content'
+    | '/github'
+    | '/linkedin'
+    | '/memory'
+    | '/projects'
+    | '/projects/$slug'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChangelogRoute: typeof ChangelogRoute
+  ContentRoute: typeof ContentRoute
+  GithubRoute: typeof GithubRoute
+  LinkedinRoute: typeof LinkedinRoute
+  MemoryRoute: typeof MemoryRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +152,87 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/changelog': {
+      id: '/changelog'
+      path: '/changelog'
+      fullPath: '/changelog'
+      preLoaderRoute: typeof ChangelogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/content': {
+      id: '/content'
+      path: '/content'
+      fullPath: '/content'
+      preLoaderRoute: typeof ContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/github': {
+      id: '/github'
+      path: '/github'
+      fullPath: '/github'
+      preLoaderRoute: typeof GithubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linkedin': {
+      id: '/linkedin'
+      path: '/linkedin'
+      fullPath: '/linkedin'
+      preLoaderRoute: typeof LinkedinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/memory': {
+      id: '/memory'
+      path: '/memory'
+      fullPath: '/memory'
+      preLoaderRoute: typeof MemoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
   }
 }
 
+interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChangelogRoute: ChangelogRoute,
+  ContentRoute: ContentRoute,
+  GithubRoute: GithubRoute,
+  LinkedinRoute: LinkedinRoute,
+  MemoryRoute: MemoryRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
