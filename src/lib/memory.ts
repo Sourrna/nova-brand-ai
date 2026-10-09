@@ -39,7 +39,9 @@ export function filterForExport(m: Memory, scope: ExportScope): Memory {
   };
   let records = m.records.filter((r) => allowed[scope].includes(r.visibility));
   if (scope === "public") records = records.filter((r) => r.state === "VERIFIED" || r.state === "USER_PROVIDED");
-  return { ...m, records };
+  const sourceIds = new Set(records.map((r) => r.id));
+  const content = m.content.filter((c) => sourceIds.has(c.sourceRecord));
+  return { ...m, records, content, accounts: scope === "public" ? [] : m.accounts };
 }
 
 export function toMarkdown(m: Memory): string {

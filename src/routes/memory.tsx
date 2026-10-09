@@ -8,9 +8,9 @@ import { PageHeader, Panel, StateBadge, download, btn, chip } from "@/components
 export const Route = createFileRoute("/memory")({
   head: () => ({
     meta: [
-      { title: "Memory Core — NOVA OS" },
+      { title: "Memory Core — Sourena Brand Control Center" },
       { name: "description", content: "Browse, filter, validate, export and import Sourena's Memory Core." },
-      { property: "og:title", content: "Memory Core — NOVA OS" },
+      { property: "og:title", content: "Memory Core — Sourena Brand Control Center" },
       { property: "og:description", content: "Every record with its knowledge state, visibility and source." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

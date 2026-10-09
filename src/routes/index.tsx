@@ -7,9 +7,9 @@ import { PageHeader, Panel, STATE_STYLE } from "@/components/ui-kit";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dashboard — NOVA OS" },
+      { title: "Overview — Sourena Brand Control Center" },
       { name: "description", content: "Sourena's personal brand control center: status overview and next actions." },
-      { property: "og:title", content: "Dashboard — NOVA OS" },
+      { property: "og:title", content: "Overview — Sourena Brand Control Center" },
       { property: "og:description", content: "Memory, projects, content and proof-of-work status at a glance." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -42,10 +42,10 @@ function Dashboard() {
 
   return (
     <>
-      <PageHeader kicker="Dashboard" title="Control Center" sub={`Memory snapshot v${m.snapshotVersion} · ${m.updatedAt}`} />
+      <PageHeader kicker="Dashboard" title="Sourena Brand Control Center" sub={`Memory snapshot v${m.snapshotVersion} · ${m.updatedAt}`} />
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        <Stat label="Memory records" value={m.records.length} to="/memory" hint={`${counts.VERIFIED ?? 0} verified`} />
-        <Stat label="Needs confirmation" value={counts.NEEDS_CONFIRMATION ?? 0} to="/memory" hint="Awaiting your answer" />
+        <Stat label="Memory records" value={m.records.length} to="/memory" hint={`${counts["VERIFIED"] ?? 0} verified`} />
+        <Stat label="Needs confirmation" value={counts["NEEDS_CONFIRMATION"] ?? 0} to="/memory" hint="Awaiting your answer" />
         <Stat label="Projects" value={projects.length} to="/projects" hint="From projects/" />
         <Stat label="Content items" value={contentTotal} to="/content" hint="Ideas → measured" />
       </div>
@@ -83,9 +83,9 @@ function Dashboard() {
         <Panel label="Accounts">
           <ul className="space-y-2 text-sm">
             {m.accounts.map((a) => (
-              <li key={a.id} className="flex justify-between gap-2">
+              <li key={a.id} className="flex flex-wrap justify-between gap-2">
                 <span><span className="font-medium capitalize">{a.id}</span> <span className="text-muted-foreground">· {a.role}</span></span>
-                <span className="font-mono text-[10px] text-pending">{a.status}</span>
+                <span className="break-all font-mono text-[10px] text-pending">{a.status}</span>
               </li>
             ))}
           </ul>

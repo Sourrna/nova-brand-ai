@@ -13,5 +13,5 @@
 
 - Memory Core is the file `context/memory.json`, versioned in git; the app reads it at build time. Why: git history is the sync log and stays portable to Nova GPT.
 - Brand, project, content and system docs live as Markdown in root folders (brand/, projects/, content/, github/, linkedin/, system/). Why: human- and GPT-readable, version-controlled.
-- Every memory record carries a knowledge state and a visibility level; UI and exports must respect them. Why: never present unverified info as fact.
+- Every memory record carries a knowledge state and visibility; scope exports filter content by eligible source records, omit account metadata publicly, and draft source selectors use only public verified/owner-reported candidates. Why: prevent indirect disclosure through content or account metadata.
 - No secrets or credentials in the repository. Why: privacy rules.
