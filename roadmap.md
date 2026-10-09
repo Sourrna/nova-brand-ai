@@ -1,13 +1,13 @@
 # NOVA OS Roadmap
 
-## Phase 1 (current)
-- [ ] Lovable <-> GitHub connection (private repo `nova-brand-os`) — needs owner action in Lovable GitHub menu
+## Phase 1 foundation
+- [x] Project sync with `Sourrna/nova-brand-ai` on `main` — owner-reported Lovable UI; not GitHub account/API integration
 - [x] Repository structure (brand/, context/, projects/, content/, github/, linkedin/, system/)
 - [x] Memory Core (file-based, versioned in git, JSON export)
 - [x] Brand Foundation + Positioning drafts (NEEDS_CONFIRMATION)
 - [x] Project / Proof of Work structure
 - [x] Content pipeline structure
-- [x] Control Center (read-only view + export)
+- [x] Control Center (file-backed views, validated session import + export)
 
 ## Phase 2
 - [x] Step 1: app shell, memory, projects, content, GitHub, LinkedIn, changelog pages
@@ -22,3 +22,8 @@
 - Phase 6: Content engine workflow
 - Phase 7: LinkedIn / Portfolio / Resume
 - Phase 8: Analytics
+
+## Scoped owner profile update
+- [x] Incorporate chat-supplied questionnaire answers without guessing unavailable attachment contents
+- [x] Align brand/project/LinkedIn docs and project-sync status
+- [ ] Verify privacy rules and run existing tests

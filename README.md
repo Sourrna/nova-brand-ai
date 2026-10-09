@@ -1,6 +1,8 @@
-# NOVA OS — Sourena
+# Sourena Brand Control Center
 
-Personal Brand Operating System.
+Powered by NOVA.
+
+Internal, file-based Personal Brand Operating System for Sourena; not a public portfolio.
 
 - **NOVA (GPT)** — strategic brain: analysis, strategy, decisions, critique.
 - **Memory Core** (`context/memory.json`) — canonical, versioned, portable context. Source of truth.
@@ -24,3 +26,10 @@ Brand chain: Foundation → Identity → Positioning → Proof → Profile → C
 3. Nova returns proposed changes; you review and commit them to `context/memory.json`.
 
 No secrets live in this repository.
+
+## Current scope and disclosure
+Owner profile answers from the 2026-10-09 chat are incorporated in Memory snapshot v2; the named JSON attachment was not available for independent file reconciliation. Self-assessments remain USER_PROVIDED, unresolved fields NEEDS_CONFIRMATION.
+
+Project sync with Sourrna/nova-brand-ai on main is owner-reported, not full GitHub account/API integration. LinkedIn is planning-only and not connected. No paid APIs or external automation.
+
+All public use requires explicit approval. This app bundles private/internal owner context at build time: keep repository private and do not deploy it as a public profile. Session imports and downloaded drafts do not write repository files.
