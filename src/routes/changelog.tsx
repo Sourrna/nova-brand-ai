@@ -5,9 +5,9 @@ import { PageHeader } from "@/components/ui-kit";
 export const Route = createFileRoute("/changelog")({
   head: () => ({
     meta: [
-      { title: "Changelog — NOVA OS" },
+      { title: "Changelog — Sourena Brand Control Center" },
       { name: "description", content: "Important system changes to NOVA OS, read from system/changelog.md." },
-      { property: "og:title", content: "Changelog — NOVA OS" },
+      { property: "og:title", content: "Changelog — Sourena Brand Control Center" },
       { property: "og:description", content: "Versioned history of system changes." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

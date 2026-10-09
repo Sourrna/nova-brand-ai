@@ -16,7 +16,7 @@ describe("memory import validation", () => {
   it("rejects non-object input", () => expect(validateMemory([]).ok).toBe(false));
   it("diff detects removed records", () => {
     const next = { ...memory, records: memory.records.slice(1) };
-    expect(diffMemory(memory, next).removed).toEqual([memory.records[0].id]);
+    expect(diffMemory(memory, next).removed).toEqual([memory.records[0]?.id]);
   });
 });
 

@@ -6,9 +6,9 @@ import { PageHeader, Panel, StateBadge, Md } from "@/components/ui-kit";
 export const Route = createFileRoute("/github")({
   head: () => ({
     meta: [
-      { title: "GitHub Proof of Work — NOVA OS" },
+      { title: "GitHub Proof of Work — Sourena Brand Control Center" },
       { name: "description", content: "Proof-of-work tracking: which projects have real evidence and which skills they demonstrate." },
-      { property: "og:title", content: "GitHub Proof of Work — NOVA OS" },
+      { property: "og:title", content: "GitHub Proof of Work — Sourena Brand Control Center" },
       { property: "og:description", content: "Evidence coverage per project and skill." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -29,9 +29,9 @@ function GithubPage() {
         <Panel label="Evidence coverage">
           <ul className="space-y-2 text-sm">
             {projects.map((p) => (
-              <li key={p.slug} className="flex justify-between gap-2"><span>{p.title}</span><span className={`font-mono text-xs ${p.fields.evidence ? "text-verified" : "text-pending"}`}>{p.fields.evidence || "missing"}</span></li>
+              <li key={p.slug} className="flex justify-between gap-2"><span>{p.title}</span><span className={`font-mono text-xs ${p.fields["evidence"] ? "text-verified" : "text-pending"}`}>{p.fields["evidence"] || "missing"}</span></li>
             ))}
-            {withEvidence.map((r) => <li key={r.id} className="flex justify-between gap-2 text-muted-foreground"><span>{r.id} · {r.title}</span><span className="font-mono text-xs">{r.evidence!.join(", ")}</span></li>)}
+            {withEvidence.map((r) => <li key={r.id} className="flex justify-between gap-2 text-muted-foreground"><span>{r.id} · {r.title}</span><span className="font-mono text-xs">{r.evidence?.join(", ")}</span></li>)}
           </ul>
         </Panel>
         <Panel label="Skills without evidence">

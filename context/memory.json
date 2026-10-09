@@ -1,36 +1,562 @@
 {
   "schemaVersion": 1,
-  "snapshotVersion": 1,
-  "updatedAt": "2026-10-07",
+  "snapshotVersion": 2,
+  "updatedAt": "2026-10-09",
   "owner": "Sourena",
   "records": [
-    { "id": "id-001", "domain": "identity", "title": "Name", "value": "Sourena", "state": "USER_PROVIDED", "visibility": "PUBLIC", "source": "user" },
-    { "id": "edu-001", "domain": "education", "title": "Field of study", "value": "Computer Engineering student", "state": "USER_PROVIDED", "visibility": "PUBLIC", "source": "user", "note": "University, year and expected graduation not provided." },
-    { "id": "pos-001", "domain": "brand", "title": "Intended identity", "value": "A builder who combines engineering, AI, product thinking and entrepreneurship to build useful systems and products.", "state": "USER_PROVIDED", "visibility": "PUBLIC", "source": "user" },
-    { "id": "goal-001", "domain": "goal", "title": "Long-term direction", "value": "Engineering + AI + Product Building + Entrepreneurship", "state": "USER_PROVIDED", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "skill-001", "domain": "skill", "title": "Python", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "skill-002", "domain": "skill", "title": "Software Engineering", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "skill-003", "domain": "skill", "title": "Git / GitHub", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "skill-004", "domain": "skill", "title": "Machine Learning / Deep Learning / AI", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "skill-005", "domain": "skill", "title": "Algorithms", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "skill-006", "domain": "skill", "title": "IoT", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "skill-007", "domain": "skill", "title": "Product Thinking / Entrepreneurship", "value": "Direction / interest. Level not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "proj-001", "domain": "project", "title": "BetaBazar", "value": "Existing project. Scope, role, status and outcomes not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "proj-002", "domain": "research", "title": "IoT algorithm research", "value": "Existing research. Topic, status and publications not provided.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "proj-003", "domain": "project", "title": "NOVA OS (this system)", "value": "Personal brand operating system. Phase 1 foundation in progress.", "state": "VERIFIED", "visibility": "PUBLIC", "source": "system", "evidence": ["this repository"] },
-    { "id": "rule-001", "domain": "rule", "title": "No unverified claims", "value": "Never invent employment, degrees, certificates, clients, revenue, users, metrics, titles or outcomes.", "state": "USER_PROVIDED", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "rule-002", "domain": "rule", "title": "Approval required", "value": "Public posts, profile changes, deletions, permission changes and disconnections require owner approval.", "state": "USER_PROVIDED", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "rule-003", "domain": "rule", "title": "Zero-cost target", "value": "Prefer free tiers, GitHub Actions, open source and local AI. AI providers must be swappable.", "state": "USER_PROVIDED", "visibility": "INTERNAL_STRATEGY", "source": "user" },
-    { "id": "q-001", "domain": "pending_question", "title": "BetaBazar details", "value": "What is BetaBazar, your role, status, and is there a public link or repo?", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "system" },
-    { "id": "q-002", "domain": "pending_question", "title": "Education details", "value": "University, current year, expected graduation — and which of these may be public?", "state": "NEEDS_CONFIRMATION", "visibility": "PRIVATE", "source": "system" },
-    { "id": "q-003", "domain": "pending_question", "title": "GitHub and LinkedIn handles", "value": "Your existing GitHub username and LinkedIn profile URL, if any.", "state": "NEEDS_CONFIRMATION", "visibility": "INTERNAL_STRATEGY", "source": "system" }
+    {
+      "id": "id-001",
+      "domain": "identity",
+      "title": "Public professional name",
+      "value": "Sourena",
+      "state": "USER_PROVIDED",
+      "visibility": "PUBLIC",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Latin spelling supplied. Public use still requires explicit approval; Persian spelling is unresolved."
+    },
+    {
+      "id": "edu-001",
+      "domain": "education",
+      "title": "Field of study",
+      "value": "Computer Engineering student",
+      "state": "USER_PROVIDED",
+      "visibility": "PUBLIC",
+      "source": "user",
+      "note": "University, year and expected graduation not provided."
+    },
+    {
+      "id": "pos-001",
+      "domain": "brand",
+      "title": "Intended positioning",
+      "value": "Aspiring computer engineer and AI/product builder focused on useful, evidence-led work for budget-conscious businesses and promising startups.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Owner-provided direction, not current specialist/expert titles. External wording is a draft pending approval."
+    },
+    {
+      "id": "goal-001",
+      "domain": "goal",
+      "title": "Five-year aspirations",
+      "value": "Computer Engineer; AI/ML specialist; AI product builder; technology/startup founder.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Aspirations only, not current titles or achievements."
+    },
+    {
+      "id": "skill-001",
+      "domain": "skill",
+      "title": "Python",
+      "value": "Owner self-rating: 2/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-002",
+      "domain": "skill",
+      "title": "API/backend",
+      "value": "Owner self-rating: 2/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-003",
+      "domain": "skill",
+      "title": "Git/GitHub",
+      "value": "Owner self-rating: 2/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-004",
+      "domain": "skill",
+      "title": "Machine learning",
+      "value": "Owner self-rating: 4/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-005",
+      "domain": "skill",
+      "title": "Algorithms/data structures",
+      "value": "Owner self-rating: 4/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-006",
+      "domain": "skill",
+      "title": "IoT",
+      "value": "Research involvement reported; proficiency level not supplied.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "skill-007",
+      "domain": "skill",
+      "title": "Product/UX",
+      "value": "Owner self-rating: 4/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "proj-001",
+      "domain": "project",
+      "title": "BetaBazar",
+      "value": "Owner reports ideation and technical involvement, good revenue, a good presentation at a business-related exhibition, and decline after their exit due to team issues.",
+      "state": "USER_PROVIDED",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Owner narrative only; no metrics, independent evidence or additional causation established. Public case study requires explicit approval."
+    },
+    {
+      "id": "proj-002",
+      "domain": "research",
+      "title": "IoT cybersecurity / IOBNT research",
+      "value": "Owner reports research collaboration involving IoT cybersecurity and IOBNT, drug-carrier nanoparticles, and digital twins for testing/diagnosis.",
+      "state": "USER_PROVIDED",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Role, scope, publications, evidence and public disclosure remain NEEDS_CONFIRMATION."
+    },
+    {
+      "id": "proj-003",
+      "domain": "project",
+      "title": "NOVA Brand OS (this repository)",
+      "value": "File-based brand control center exists in this repository; intended as the first step toward an automated personal-brand/income system.",
+      "state": "VERIFIED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "system",
+      "evidence": [
+        "this repository"
+      ],
+      "note": "VERIFIED applies only to repository existence and implemented file-based control center. Automation/income outcomes are owner intentions, not delivered capabilities."
+    },
+    {
+      "id": "rule-001",
+      "domain": "rule",
+      "title": "No unverified claims",
+      "value": "Never invent employment, degrees, certificates, clients, revenue, users, metrics, titles or outcomes.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "user"
+    },
+    {
+      "id": "rule-002",
+      "domain": "rule",
+      "title": "Explicit approval required",
+      "value": "Nothing may be made public without explicit Sourena approval, including routine professional/branding posts. Approval required before GitHub repository analysis/creation, project file creation/edits, LinkedIn publication/profile edits, destructive actions, permission changes or account disconnection.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "This owner request approves only the scoped local profile update. LinkedIn drafting may be suggested; never auto-publish."
+    },
+    {
+      "id": "rule-003",
+      "domain": "rule",
+      "title": "Near-zero costs and access constraints",
+      "value": "Near-zero costs; no paid APIs for now; providers swappable. Account for Iran internet/access constraints.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "q-001",
+      "domain": "pending_question",
+      "title": "BetaBazar evidence and disclosure",
+      "value": "Confirm role boundaries, dates, evidence and which details may appear in an approved public case study.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "q-002",
+      "domain": "pending_question",
+      "title": "Education details",
+      "value": "University, current year, expected graduation — and which of these may be public?",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "PRIVATE",
+      "source": "system"
+    },
+    {
+      "id": "q-003",
+      "domain": "pending_question",
+      "title": "Platform profile identifiers",
+      "value": "GitHub questionnaire handle and LinkedIn profile URL unanswered. Existing project repository owner Sourrna does not resolve broader account/API access.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "skill-008",
+      "domain": "skill",
+      "title": "C/C++",
+      "value": "Owner self-rating: 1/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-009",
+      "domain": "skill",
+      "title": "C#/.NET",
+      "value": "Owner self-rating: 1/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-010",
+      "domain": "skill",
+      "title": "JavaScript/TypeScript",
+      "value": "Owner self-rating: 3/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-011",
+      "domain": "skill",
+      "title": "HTML/CSS",
+      "value": "Owner self-rating: 3/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-012",
+      "domain": "skill",
+      "title": "SQL/databases",
+      "value": "Owner self-rating: 2/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-013",
+      "domain": "skill",
+      "title": "Frontend",
+      "value": "Owner self-rating: 4/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-014",
+      "domain": "skill",
+      "title": "AI/LLMs",
+      "value": "Owner self-rating: 4/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-015",
+      "domain": "skill",
+      "title": "Deep learning",
+      "value": "Owner self-rating: 1/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-016",
+      "domain": "skill",
+      "title": "Linux/CLI",
+      "value": "Owner self-rating: 0/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-017",
+      "domain": "skill",
+      "title": "Idea/business validation",
+      "value": "Owner self-rating: 3/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-018",
+      "domain": "skill",
+      "title": "Technical writing",
+      "value": "Owner self-rating: 3/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "skill-019",
+      "domain": "skill",
+      "title": "Technical English",
+      "value": "Owner self-rating: 3/4.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Questionnaire self-assessment, not independently verified proficiency. Not a public claim without review."
+    },
+    {
+      "id": "proj-004",
+      "domain": "project",
+      "title": "NOVA reusable system concept",
+      "value": "Reusable character/system concept implementable across platforms.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Owner concept. This repository supplies limited implementation evidence, not proof of a fully integrated multi-platform agent."
+    },
+    {
+      "id": "proj-005",
+      "domain": "project",
+      "title": "Digital letter/postcard design website",
+      "value": "Owner reports implementing and testing interesting ideas for a law-firm website.",
+      "state": "USER_PROVIDED",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "Client identity not supplied or authorized for disclosure; role details, evidence and outcomes unresolved. No quantified results claimed."
+    },
+    {
+      "id": "proj-006",
+      "domain": "project",
+      "title": "Linear algebra book",
+      "value": "Book in progress. Status: IN_PROGRESS.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "No publication claimed. Title, scope and manuscript evidence require follow-up."
+    },
+    {
+      "id": "proj-007",
+      "domain": "project",
+      "title": "Entrepreneurs experience book",
+      "value": "Book about successful entrepreneurs' experiences in progress. Status: IN_PROGRESS; title may change.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount",
+      "note": "No publication claimed. Scope and manuscript evidence require follow-up."
+    },
+    {
+      "id": "id-002",
+      "domain": "identity",
+      "title": "Persian name spelling",
+      "value": "Persian spelling not supplied.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "goal-002",
+      "domain": "goal",
+      "title": "Twelve-month goals",
+      "value": "Freelance income; professional networking; a monetizable personal brand.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "brand-001",
+      "domain": "brand",
+      "title": "Audience",
+      "value": "Business managers who may value education; businesses with limited budgets for substantial projects; promising startups.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "brand-002",
+      "domain": "brand",
+      "title": "Internal commercial context",
+      "value": "Commercial willingness to work with paying customers is internal context, not public positioning.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "pref-001",
+      "domain": "preference",
+      "title": "Market and languages",
+      "value": "Bilingual Persian/English content pathways.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "pref-002",
+      "domain": "preference",
+      "title": "Weekly capacity",
+      "value": "Around 20 hours across 4 days; variable due to university and gym.",
+      "state": "USER_PROVIDED",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "pref-003",
+      "domain": "preference",
+      "title": "Nova working style",
+      "value": "Direct, critical, evidence-based; reach a usable MVP quickly, then iterate.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "pref-004",
+      "domain": "preference",
+      "title": "AI role",
+      "value": "AI accelerates and optimizes work as a complement; Sourena knows goals and can implement many tasks.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "pref-005",
+      "domain": "preference",
+      "title": "Owner-selected blockers",
+      "value": "Perfectionism; unfinished projects; consistency/follow-through.",
+      "state": "USER_PROVIDED",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "pref-006",
+      "domain": "preference",
+      "title": "Strengths assessment",
+      "value": "Owner requested a later evidence-based assessment; no assessment supplied.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "rule-004",
+      "domain": "rule",
+      "title": "Automation preferences",
+      "value": "GitHub analysis/repository creation/project file edits: approval; LinkedIn drafts: suggest; LinkedIn publication/profile edits: approval.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "rule-005",
+      "domain": "rule",
+      "title": "Progress logging",
+      "value": "Unanswered; default to opt-in, no automatic progress logging until approved.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "tool-001",
+      "domain": "preference",
+      "title": "Developer tools",
+      "value": "Python can be run and developer tools installed; OS/hardware not supplied.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "q-004",
+      "domain": "pending_question",
+      "title": "Research evidence and disclosure",
+      "value": "Confirm exact research role, scope, publications and public-proof permissions.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "q-005",
+      "domain": "pending_question",
+      "title": "Operating system and hardware",
+      "value": "Operating system and hardware fields unanswered; do not infer them.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "q-006",
+      "domain": "pending_question",
+      "title": "Client project proof and permissions",
+      "value": "Confirm website role, evidence, scope and approved disclosure without revealing client identity.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "PRIVATE",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "q-007",
+      "domain": "pending_question",
+      "title": "Books evidence",
+      "value": "Confirm working titles, scope, progress and manuscript evidence; neither book is reported published.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "acct-001",
+      "domain": "account_state",
+      "title": "Project repository sync",
+      "value": "Owner reports Lovable project sync with Sourrna/nova-brand-ai on main. Not full GitHub account/API integration.",
+      "state": "USER_PROVIDED",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    },
+    {
+      "id": "acct-002",
+      "domain": "account_state",
+      "title": "LinkedIn integration",
+      "value": "Personal-account integration not connected/confirmed; no verified automatic read/write access.",
+      "state": "NEEDS_CONFIRMATION",
+      "visibility": "INTERNAL_STRATEGY",
+      "source": "owner: profile answers supplied in chat (2026-10-09); sourena_brand_profile_answers.json not available in upload mount"
+    }
   ],
   "content": [
-    { "id": "c-001", "stage": "idea", "title": "Why I'm building NOVA OS in public", "pillar": "Building in public", "sourceRecord": "proj-003" }
+    {
+      "id": "c-001",
+      "stage": "idea",
+      "title": "Why I'm building NOVA OS in public",
+      "pillar": "Building in public",
+      "sourceRecord": "proj-003"
+    }
   ],
   "accounts": [
-    { "id": "github", "role": "Proof of Work", "status": "NOT_CONNECTED" },
-    { "id": "linkedin", "role": "Public narrative & distribution", "status": "NOT_CONNECTED" },
-    { "id": "portfolio", "role": "Complete story", "status": "NOT_STARTED" }
+    {
+      "id": "github",
+      "role": "Project repo sync (owner-reported); account API not connected",
+      "status": "PROJECT_SYNC_REPORTED_API_NOT_CONNECTED"
+    },
+    {
+      "id": "linkedin",
+      "role": "Planning / positioning / distribution; no verified account access",
+      "status": "NOT_CONNECTED"
+    },
+    {
+      "id": "portfolio",
+      "role": "Complete story",
+      "status": "NOT_STARTED"
+    }
   ]
 }

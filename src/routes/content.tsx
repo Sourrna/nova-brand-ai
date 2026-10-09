@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { CONTENT_STAGES } from "@/lib/memory";
+import { CONTENT_STAGES, filterForExport } from "@/lib/memory";
 import { useMemory } from "@/lib/store";
 import { contentDocs, draftMarkdown, slugify } from "@/lib/files";
 import { PageHeader, Panel, download, btn } from "@/components/ui-kit";
@@ -8,9 +8,9 @@ import { PageHeader, Panel, download, btn } from "@/components/ui-kit";
 export const Route = createFileRoute("/content")({
   head: () => ({
     meta: [
-      { title: "Content Pipeline — NOVA OS" },
+      { title: "Content Pipeline — Sourena Brand Control Center" },
       { name: "description", content: "Seven-stage content pipeline from idea to measured, backed by Markdown files." },
-      { property: "og:title", content: "Content Pipeline — NOVA OS" },
+      { property: "og:title", content: "Content Pipeline — Sourena Brand Control Center" },
       { property: "og:description", content: "Idea → Strategy → Draft → Review → Approval → Published → Measured." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -26,10 +26,10 @@ function ContentPage() {
   const [form, setForm] = useState({ title: "", pillar: "Building in public", source: "", body: "" });
   const items = [
     ...contentDocs.map((d) => ({ id: d.path, title: d.title, stage: d.stage, meta: d.path })),
-    ...m.content.filter((c) => !contentDocs.some((d) => d.fields.source === c.sourceRecord && d.title === c.title))
+    ...m.content.filter((c) => !contentDocs.some((d) => d.fields["source"] === c.sourceRecord && d.title === c.title))
       .map((c) => ({ id: c.id, title: c.title, stage: c.stage, meta: `memory · ${c.pillar}` })),
   ];
-  const sources = m.records.filter((r) => r.state !== "INFERRED");
+  const sources = filterForExport(m, "public").records;
   const n = String(contentDocs.length + 1).padStart(3, "0");
   const filename = `${n}-${slugify(form.title)}.md`;
 
@@ -68,9 +68,9 @@ function ContentPage() {
         </Panel>
         <Panel label="Rules">
           <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
-            <li>Every claim must trace to a VERIFIED or USER_PROVIDED record.</li>
+            <li>Every claim must trace to an eligible PUBLIC, VERIFIED or USER_PROVIDED record.</li>
             <li>Only items in <code>content/approved/</code> may be published.</li>
-            <li>Publishing is manual (copy & post) and needs owner approval.</li>
+            <li>Every public use needs explicit Sourena approval; no automatic publishing.</li>
           </ul>
         </Panel>
       </div>

@@ -29,8 +29,8 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
   const brand = (
     <div className="border-b border-border px-6 py-5">
-      <p className="font-mono text-xs uppercase tracking-widest text-primary">NOVA OS</p>
-      <p className="mt-1 font-bold">{m.owner}</p>
+      <p className="font-bold">{m.owner} Brand Control Center</p>
+      <p className="mt-1 font-mono text-xs text-primary">Powered by NOVA</p>
       <p className="font-mono text-[10px] text-muted-foreground">snapshot v{m.snapshotVersion}{memoryStore.isImported() ? " · imported (session)" : ""}</p>
     </div>
   );
@@ -38,7 +38,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="min-h-screen md:flex">
       <aside className="hidden w-60 shrink-0 border-r border-border bg-sidebar md:sticky md:top-0 md:block md:h-screen">{brand}{nav}</aside>
       <div className="flex items-center justify-between border-b border-border px-4 py-3 md:hidden">
-        <span className="font-mono text-xs uppercase tracking-widest text-primary">NOVA OS</span>
+        <span className="text-sm font-bold">{m.owner} Brand Control Center</span>
         <button aria-label="Open menu" onClick={() => setOpen(true)}><Menu className="h-5 w-5" /></button>
       </div>
       {open && (
