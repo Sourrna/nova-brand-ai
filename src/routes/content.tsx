@@ -4,6 +4,7 @@ import { CONTENT_STAGES, filterForExport } from "@/lib/memory";
 import { useMemory } from "@/lib/store";
 import { contentDocs, draftMarkdown, slugify } from "@/lib/files";
 import { PageHeader, Panel, download, btn } from "@/components/ui-kit";
+import { ContentWorkflow } from "@/components/ContentWorkflow";
 
 export const Route = createFileRoute("/content")({
   head: () => ({
@@ -79,6 +80,8 @@ function ContentPage() {
           })}
         </div>
       </div>
+
+      <ContentWorkflow />
 
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         <Panel label="New draft (file-based)">
