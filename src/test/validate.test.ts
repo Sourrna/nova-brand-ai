@@ -26,6 +26,10 @@ describe("file parsing", () => {
     expect(p).toEqual({ title: "X", fields: { status: "Phase 1", evidence: "repo" } });
   });
   it("parses changelog entries", () => {
-    expect(parseChangelog("# C\n## 2026-10-08 — Phase 2\n- a\n- b")[0]).toEqual({ date: "2026-10-08", title: "Phase 2", items: ["a", "b"] });
+    expect(parseChangelog("# C\n## 2026-10-08 — Phase 2\n- a\n- b")[0]).toEqual({
+      date: "2026-10-08",
+      title: "Phase 2",
+      items: ["a", "b"],
+    });
   });
 });

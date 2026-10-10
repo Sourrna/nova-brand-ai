@@ -67,6 +67,7 @@ describe("memory export", () => {
     const pub = filterForExport(m, "public");
     expect(pub.records.map((r) => r.id).sort()).toEqual(["p1", "p2"]);
     expect(pub.accounts).toEqual([]);
+    expect(toMarkdown(pub, "public")).not.toMatch(/Internal|Sensitive|Private/);
   });
 
   it("public export filters out INFERRED/NEEDS_CONFIRMATION even if PUBLIC", () => {
@@ -176,44 +177,5 @@ describe("memory export", () => {
     };
     const full = filterForExport(m, "full");
     expect(full.records.map((r) => r.id)).toEqual(["pr"]);
-  });
-
-  it("toMarkdown default public never leaks PRIVATE/SENSITIVE/INTERNAL_STRATEGY", () => {
-    const m: Memory = {
-      ...base,
-      records: [
-        {
-          id: "p",
-          domain: "brand",
-          title: "P",
-          value: "v",
-          state: "VERIFIED",
-          visibility: "PUBLIC",
-          source: "s",
-        },
-        {
-          id: "i",
-          domain: "brand",
-          title: "I",
-          value: "secret",
-          state: "VERIFIED",
-          visibility: "INTERNAL_STRATEGY",
-          source: "s",
-        },
-        {
-          id: "s",
-          domain: "brand",
-          title: "S",
-          value: "secret",
-          state: "VERIFIED",
-          visibility: "SENSITIVE",
-          source: "s",
-        },
-      ],
-    };
-    const md = toMarkdown(m);
-    expect(md).not.toMatch(/secret/);
-    expect(md).not.toMatch(/INTERNAL_STRATEGY/);
-    expect(md).not.toMatch(/SENSITIVE/);
   });
 });

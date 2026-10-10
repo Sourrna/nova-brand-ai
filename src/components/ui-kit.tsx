@@ -13,11 +13,21 @@ export function StateBadge({ state }: { state: string }) {
   return <span className={`inline-block border px-1.5 font-mono text-[10px] ${cls}`}>{state}</span>;
 }
 
-export function Panel({ label, children, action }: { label: string; children: ReactNode; action?: ReactNode }) {
+export function Panel({
+  label,
+  children,
+  action,
+}: {
+  label: string;
+  children: ReactNode;
+  action?: ReactNode;
+}) {
   return (
     <section className="border border-border bg-card p-5">
       <div className="mb-4 flex items-center justify-between gap-2">
-        <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{label}</h2>
+        <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+          {label}
+        </h2>
         {action}
       </div>
       {children}
@@ -25,7 +35,15 @@ export function Panel({ label, children, action }: { label: string; children: Re
   );
 }
 
-export function PageHeader({ kicker, title, sub }: { kicker: string; title: string; sub?: ReactNode }) {
+export function PageHeader({
+  kicker,
+  title,
+  sub,
+}: {
+  kicker: string;
+  title: string;
+  sub?: ReactNode;
+}) {
   return (
     <header className="mb-6 border-b border-border pb-5">
       <p className="font-mono text-xs uppercase tracking-widest text-primary">{kicker}</p>
@@ -36,15 +54,23 @@ export function PageHeader({ kicker, title, sub }: { kicker: string; title: stri
 }
 
 export function Md({ text }: { text: string }) {
-  return <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed text-muted-foreground">{text}</pre>;
+  return (
+    <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed text-muted-foreground">
+      {text}
+    </pre>
+  );
 }
 
 export function download(name: string, body: string, type: string) {
   const url = URL.createObjectURL(new Blob([body], { type }));
   const a = document.createElement("a");
-  a.href = url; a.download = name; a.click();
+  a.href = url;
+  a.download = name;
+  a.click();
   URL.revokeObjectURL(url);
 }
 
-export const btn = "border border-primary px-3 py-1.5 text-sm text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-40";
-export const chip = (on: boolean) => `px-2 py-1 font-mono text-xs ${on ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`;
+export const btn =
+  "border border-primary px-3 py-1.5 text-sm text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-40";
+export const chip = (on: boolean) =>
+  `px-2 py-1 font-mono text-xs ${on ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`;
