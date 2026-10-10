@@ -39,6 +39,9 @@ export interface ContentItem {
   // content identity
   body?: string;
   claims?: string[];
+  platform?: string;
+  version?: number;
+  updatedAt?: string;
 }
 export interface Account {
   id: string;
