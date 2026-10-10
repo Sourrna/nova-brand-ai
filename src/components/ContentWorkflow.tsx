@@ -63,7 +63,7 @@ export function ContentWorkflow() {
             ))}
           </ul>
           <p className="text-xs text-muted-foreground">
-            Local-only: changes live in this browser session. Export JSON from Memory and commit it to
+            Local-only: changes are saved in this browser (no cloud sync). Export JSON from Memory and commit it to
             <code> context/memory.json</code> to keep them. Nothing is posted anywhere.
           </p>
         </div>
