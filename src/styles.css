@@ -75,7 +75,7 @@
   --card-foreground: oklch(0.93 0.01 90);
   --popover: oklch(0.2 0.012 250);
   --popover-foreground: oklch(0.93 0.01 90);
-  --primary: oklch(0.82 0.16 75);
+  --primary: oklch(0.82 0.13 200);
   --primary-foreground: oklch(0.16 0.01 250);
   --secondary: oklch(0.26 0.014 250);
   --secondary-foreground: oklch(0.93 0.01 90);
@@ -87,7 +87,7 @@
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.3 0.012 250);
   --input: oklch(0.3 0.012 250);
-  --ring: oklch(0.82 0.16 75);
+  --ring: oklch(0.82 0.13 200);
   --verified: oklch(0.75 0.15 155);
   --provided: oklch(0.75 0.11 235);
   --inferred: oklch(0.72 0.14 300);
@@ -152,3 +152,30 @@
     color: var(--color-foreground);
   }
 }
+
+/* Cockpit visual system (accent via html[data-accent]) */
+:root { --glow: oklch(0.82 0.13 200 / 0.12); --brand-burgundy: oklch(0.42 0.11 10); }
+html[data-accent="burgundy"] { --primary: oklch(0.7 0.14 10); --ring: oklch(0.7 0.14 10); --glow: oklch(0.6 0.14 10 / 0.14); }
+html[data-accent="amber"] { --primary: oklch(0.82 0.16 75); --ring: oklch(0.82 0.16 75); --glow: oklch(0.82 0.16 75 / 0.12); }
+html[data-intensity="vivid"] { --glow: color-mix(in oklch, var(--primary) 28%, transparent); }
+
+.cockpit {
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, var(--glow), transparent 70%),
+    radial-gradient(40rem 25rem at -10% 110%, color-mix(in oklch, var(--brand-burgundy) 25%, transparent), transparent 70%),
+    var(--background);
+}
+.glass {
+  display: block;
+  border: 1px solid color-mix(in oklch, var(--primary) 18%, var(--border));
+  background: color-mix(in oklch, var(--card) 78%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 1px oklch(1 0 0 / 0.02) inset, 0 8px 30px -12px var(--glow);
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.panel-pad { padding: 1.25rem; }
+html[data-density="compact"] .panel-pad { padding: 0.75rem; }
+html[data-density="compact"] main { padding-top: 1rem; }
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+html[data-motion="reduce"] *, html[data-motion="reduce"] *::before { transition: none !important; animation: none !important; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

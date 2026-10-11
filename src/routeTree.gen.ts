@@ -16,6 +16,7 @@ import { Route as GithubRouteImport } from './routes/github'
 import { Route as LinkedinRouteImport } from './routes/linkedin'
 import { Route as MemoryRouteImport } from './routes/memory'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
@@ -54,6 +55,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/linkedin': typeof LinkedinRoute
   '/memory': typeof MemoryRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
 }
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/github': typeof GithubRoute
   '/linkedin': typeof LinkedinRoute
   '/memory': typeof MemoryRoute
+  '/settings': typeof SettingsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects': typeof ProjectsIndexRoute
 }
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/linkedin': typeof LinkedinRoute
   '/memory': typeof MemoryRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
 }
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/linkedin'
     | '/memory'
     | '/projects'
+    | '/settings'
     | '/projects/$slug'
     | '/projects/'
   fileRoutesByTo: FileRoutesByTo
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/github'
     | '/linkedin'
     | '/memory'
+    | '/settings'
     | '/projects/$slug'
     | '/projects'
   id:
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/linkedin'
     | '/memory'
     | '/projects'
+    | '/settings'
     | '/projects/$slug'
     | '/projects/'
   fileRoutesById: FileRoutesById
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   LinkedinRoute: typeof LinkedinRoute
   MemoryRoute: typeof MemoryRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
+  SettingsRoute: typeof SettingsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -194,6 +207,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/'
@@ -233,6 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   LinkedinRoute: LinkedinRoute,
   MemoryRoute: MemoryRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
+  SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
