@@ -30,7 +30,7 @@ const pick = <T extends string>(v: unknown, opts: readonly T[], d: T): T =>
 /** Sanitize any stored value into a valid Workspace (unknown/corrupt -> defaults). */
 export function sanitize(raw: unknown): Workspace {
   if (!raw || typeof raw !== "object") return { ...DEFAULT_WS, order: [...PANELS], tasks: [] };
-  const o = raw as Record<string, unknown>;
+  const o = raw as Partial<Record<"order" | "tasks" | "accent" | "intensity" | "density" | "dir" | "reduceMotion" | "hidden", unknown>>;
   const ids = (x: unknown) =>
     Array.isArray(x) ? [...new Set(x.filter((p): p is PanelId => PANELS.includes(p as PanelId)))] : [];
   const order = ids(o.order);
@@ -55,7 +55,7 @@ export function movePanel(order: PanelId[], id: PanelId, delta: number): PanelId
   const i = order.indexOf(id), j = i + delta;
   if (i < 0 || j < 0 || j >= order.length) return order;
   const n = [...order];
-  [n[i], n[j]] = [n[j], n[i]];
+  [n[i], n[j]] = [n[j]!, n[i]!];
   return n;
 }
 
