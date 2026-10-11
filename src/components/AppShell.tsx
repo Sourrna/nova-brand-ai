@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 import { useMemory, memoryStore } from "@/lib/store";
+import { useWorkspace } from "@/lib/workspace";
 
 const NAV = [
   { to: "/", label: "Dashboard" },
@@ -11,11 +12,13 @@ const NAV = [
   { to: "/github", label: "GitHub Proof-of-Work" },
   { to: "/linkedin", label: "LinkedIn Strategy" },
   { to: "/changelog", label: "Changelog" },
+  { to: "/settings", label: "Settings" },
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const m = useMemory();
+  useWorkspace();
   const nav = (
     <nav className="flex flex-col gap-0.5 p-3">
       {NAV.map((n) => (
@@ -24,7 +27,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           to={n.to}
           onClick={() => setOpen(false)}
           activeOptions={{ exact: n.to === "/" }}
-          className="border-l-2 border-transparent px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+          className="border-s-2 border-transparent px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
           activeProps={{ className: "!border-primary bg-secondary !text-foreground" }}
         >
           {n.label}
@@ -43,8 +46,8 @@ export function AppShell({ children }: { children: ReactNode }) {
     </div>
   );
   return (
-    <div className="min-h-screen md:flex">
-      <aside className="hidden w-60 shrink-0 border-r border-border bg-sidebar md:sticky md:top-0 md:block md:h-screen">
+    <div className="cockpit min-h-screen md:flex">
+      <aside className="hidden w-60 shrink-0 border-e border-border bg-sidebar/80 backdrop-blur md:sticky md:top-0 md:block md:h-screen">
         {brand}
         {nav}
       </aside>
@@ -58,7 +61,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="fixed inset-0 z-50 bg-background/95 md:hidden">
           <button
             aria-label="Close menu"
-            className="absolute right-4 top-4"
+            className="absolute end-4 top-4"
             onClick={() => setOpen(false)}
           >
             <X className="h-5 w-5" />

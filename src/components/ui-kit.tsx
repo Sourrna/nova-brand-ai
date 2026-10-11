@@ -23,7 +23,7 @@ export function Panel({
   action?: ReactNode;
 }) {
   return (
-    <section className="border border-border bg-card p-5">
+    <section className="glass panel-pad">
       <div className="mb-4 flex items-center justify-between gap-2">
         <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
           {label}
