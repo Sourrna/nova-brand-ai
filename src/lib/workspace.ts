@@ -66,10 +66,10 @@ const subs = new Set<() => void>();
 function apply() {
   if (typeof document === "undefined") return;
   const el = document.documentElement;
-  el.dataset.accent = ws.accent;
-  el.dataset.intensity = ws.intensity;
-  el.dataset.density = ws.density;
-  el.dataset.motion = ws.reduceMotion ? "reduce" : "auto";
+  el.dataset["accent"] = ws.accent;
+  el.dataset["intensity"] = ws.intensity;
+  el.dataset["density"] = ws.density;
+  el.dataset["motion"] = ws.reduceMotion ? "reduce" : "auto";
   el.dir = ws.dir;
 }
 
