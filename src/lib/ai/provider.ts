@@ -3,9 +3,9 @@ import { linkedInDraft } from "../workflow";
 
 /** Server-side OpenAI-compatible provider config. Read from env inside server handlers only. */
 export interface ProviderConfig {
-  baseUrl?: string;
-  model?: string;
-  apiKey?: string;
+  baseUrl?: string | undefined;
+  model?: string | undefined;
+  apiKey?: string | undefined;
 }
 
 export type DraftResult =

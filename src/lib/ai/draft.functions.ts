@@ -3,9 +3,9 @@ import { memory } from "../memory";
 import { generateDraft } from "./provider";
 
 const env = () => ({
-  baseUrl: process.env.AI_BASE_URL,
-  model: process.env.AI_MODEL,
-  apiKey: process.env.AI_API_KEY,
+  baseUrl: process.env["AI_BASE_URL"],
+  model: process.env["AI_MODEL"],
+  apiKey: process.env["AI_API_KEY"],
 });
 
 /** Server-only: keys never leave the server. Sources are checked against the canonical repo memory. */

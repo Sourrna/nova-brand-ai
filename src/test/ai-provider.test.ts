@@ -3,7 +3,7 @@ import { memory } from "@/lib/memory";
 import { publicSources } from "@/lib/workflow";
 import { generateDraft, providerStatus } from "@/lib/ai/provider";
 
-const pub = publicSources(memory)[0];
+const pub = publicSources(memory)[0]!;
 const priv = memory.records.find((r) => r.visibility !== "PUBLIC");
 
 describe("AI provider", () => {
