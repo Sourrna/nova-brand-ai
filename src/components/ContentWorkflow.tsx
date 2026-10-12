@@ -5,6 +5,7 @@ import {
   approveItem, editItem, linkedInDraft, moveItem, newItem, publicSources, validateItem, type Stage,
 } from "@/lib/workflow";
 import { Panel, btn } from "@/components/ui-kit";
+import { draftLinkedIn } from "@/lib/ai/draft.functions";
 
 const field = "w-full border border-border bg-background px-2 py-1.5 text-sm";
 
@@ -19,6 +20,8 @@ export function ContentWorkflow() {
   const [lang, setLang] = useState<"en" | "fa">("en");
   const item = m.content.find((c) => c.id === selId);
   const [draft, setDraft] = useState<{ title: string; body: string; claims: string[] } | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [aiNote, setAiNote] = useState("");
 
   const save = (next: ContentItem) =>
     memoryStore.update((mm) => ({ ...mm, content: mm.content.map((c) => (c.id === next.id ? next : c)) }));
@@ -83,9 +86,20 @@ export function ContentWorkflow() {
               <button className={btn} onClick={() => run(() => {
                 const ids = [item.sourceRecord, ...draft.claims];
                 setDraft({ ...draft, body: linkedInDraft(m, ids, lang) });
-              })}>Generate LinkedIn draft</button>
+                setAiNote("Template draft (no AI).");
+              })}>Template draft</button>
+              <button className={btn} disabled={busy} onClick={() => run(async () => {
+                setBusy(true);
+                try {
+                  const ids = [item.sourceRecord, ...draft.claims];
+                  linkedInDraft(m, ids, lang); // fail closed locally first
+                  const r = await draftLinkedIn({ data: { ids, lang } });
+                  setDraft({ ...draft, body: r.text });
+                  setAiNote(r.mode === "ai" ? `AI draft via ${r.model}. Review before approving.` : `Fallback template — ${r.reason}. Set AI_BASE_URL, AI_MODEL, AI_API_KEY in Project Settings → Secrets to enable AI.`);
+                } finally { setBusy(false); }
+              })}>{busy ? "Generating…" : "AI draft"}</button>
             </div>
-            <p className="text-xs text-muted-foreground">Draft is a template from public-safe records only — no AI provider connected.</p>
+            <p className="text-xs text-muted-foreground">{aiNote || "Drafts use public-safe records only. AI runs server-side and only if configured; it never posts anywhere."}</p>
 
             <div className="border-t border-border pt-2">
               <p className="text-xs">Stage: <b>{item.stage}</b> {item.publicationApproved ? "· approval valid until next edit" : "· not approved"}</p>
